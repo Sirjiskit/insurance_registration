@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 152 34" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="48.567" y1="13.085" x2="48.567" y2="16.894" id="gradient-0">
+      <stop offset="0" style="stop-color: rgba(65, 187, 221, 1)"/>
+      <stop offset="1" style="stop-color: rgba(28, 128, 156, 1)"/>
+    </linearGradient>
+  </defs>
+  <path d="M0 27.472c0 4.409 6.18 5.552 13.5 5.552 7.281 0 13.5-1.103 13.5-5.513s-6.179-5.552-13.5-5.552c-7.281 0-13.5 1.103-13.5 5.513z" fill="#435ebe" fill-rule="nonzero"/>
+  <circle cx="13.5" cy="8.8" r="8.8" fill="#41bbdd"/>
+  <text style="fill: url(#gradient-0); fill-opacity: 0.86; font-family: Arial, sans-serif; font-size: 3.4px; white-space: pre;" transform="matrix(8.158409, 0, 0.100581, 11.726888, -308.980133, -159.451492)" x="41.101" y="16.173">Insurance</text>
+</svg>
