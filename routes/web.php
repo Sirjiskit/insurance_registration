@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HouseController;
@@ -44,5 +45,12 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/home/view', 'index')->name('home.show');
         Route::get('/home/view/{id}', 'show')->name('home.view');
         Route::post('/update', 'update')->name('home.update');
+    });
+    Route::controller(BusinessController::class)->group(function () {
+        Route::get('/business', 'create')->name('business.create');
+        Route::post('/business', 'store')->name('business.save');
+        Route::get('/business/view', 'index')->name('business.show');
+        Route::get('/business/view/{id}', 'show')->name('business.view');
+        Route::post('/update', 'update')->name('business.update');
     });
 });

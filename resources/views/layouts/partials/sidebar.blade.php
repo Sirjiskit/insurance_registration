@@ -64,37 +64,43 @@ $s = @$target;
                         <li class="submenu-item {{ $a == 'cars' && $s == 'view' ? 'active' : '' }}">
                             <a href="{{ route('car.show') }}">view</a>
                         </li>
-                        <li class="submenu-item {{ $a == 'cars' && $s == 'add' ? 'active' : '' }}">
-                            <a href="{{ route('car.create') }}">Add</a>
-                        </li>
+                        @if (auth()->user()->userType == 2)
+                            <li class="submenu-item {{ $a == 'cars' && $s == 'add' ? 'active' : '' }}">
+                                <a href="{{ route('car.create') }}">Add</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
                 <li class="sidebar-item {{ $a == 'house' ? 'active' : '' }} has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-car-front"></i>
+                        <i class="bi bi-house"></i>
                         <span>Home Insurance</span>
                     </a>
                     <ul class="submenu {{ $a == 'house' ? 'active' : '' }}">
                         <li class="submenu-item {{ $a == 'house' && $s == 'view' ? 'active' : '' }}">
                             <a href="{{ route('home.show') }}">view</a>
                         </li>
-                        <li class="submenu-item {{ $a == 'house' && $s == 'add' ? 'active' : '' }}">
-                            <a href="{{ route('home.create') }}">Add</a>
-                        </li>
+                        @if (auth()->user()->userType == 2)
+                            <li class="submenu-item {{ $a == 'house' && $s == 'add' ? 'active' : '' }}">
+                                <a href="{{ route('home.create') }}">Add</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-item {{ $a == 'business' ? 'active' : '' }} has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-shop"></i>
                         <span>Business Insurance</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="component-alert.html">view</a>
+                    <ul class="submenu {{ $a == 'business' ? 'active' : '' }}">
+                        <li class="submenu-item {{ $a == 'business' && $s == 'view' ? 'active' : '' }}">
+                            <a href="{{ route('business.show') }}">view</a>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="component-badge.html">Add</a>
-                        </li>
+                        @if (auth()->user()->userType == 2)
+                            <li class="submenu-item {{ $a == 'business' && $s == 'add' ? 'active' : '' }}">
+                                <a href="{{ route('business.create') }}">Add</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
 

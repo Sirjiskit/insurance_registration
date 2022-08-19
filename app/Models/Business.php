@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class House extends Model
+class Business extends Model
 {
     use HasFactory;
-    protected $table = 'home';
+    protected $table = 'business';
     /**
      * The attributes that are mass assignable.
      *
@@ -16,6 +16,6 @@ class House extends Model
      */
 
     protected $fillable = [
-        'userId', 'bedRooms', 'baths', 'pool', 'fenced', 'roofType', 'roofage', 'floorType', 'garage','year', 'value'
+        'userId','name', 'description', 'businessAddress', 'businessState', 'businessCity', 'services', 'payroll'
     ];
 }

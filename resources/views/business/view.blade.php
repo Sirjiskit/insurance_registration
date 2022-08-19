@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('sub_title')
-    Car Insurance
+    Business Insurance
 @endsection
 @section('styled')
     @include('layouts.partials.styled')
@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.css') }}">
 @endsection
 @section('sidebar')
-    @include('layouts.partials.sidebar', ['active' => 'cars', 'target' => 'view'])
+    @include('layouts.partials.sidebar', ['active' => 'business', 'target' => 'view'])
 @endsection
 @section('heading')
-    Car Insurance
+Business Insurance
 @endsection
 @section('contents')
     <section>
@@ -22,26 +22,24 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Car Information</h4>
+                        <h4 class="card-title">Business Information</h4>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
-                                        <th style="white-space: nowrap">SN</th>
+                                        <th>SN</th>
                                         @if (auth()->user()->userType == 1)
-                                            <th style="white-space: nowrap">Owner</th>
+                                            <th>Owner</th>
                                         @endif
-                                        <th style="white-space: nowrap">Policy No.</th>
-                                        <th style="white-space: nowrap">Reg No.</th>
-                                        @if (auth()->user()->userType == 2)
-                                            <th style="white-space: nowrap">Chassis No.</th>
-                                        @endif
-                                        <th>Maker</th>
-                                        <th>Model</th>
-                                        <th>Value(NGN)</th>
-                                        {{-- <th>CreatedOn</th> --}}
+                                        <th>Policy No.</th>
+                                        <th>Business Name.</th>
+                                        {{-- <th>Description.</th> --}}
+                                        <th>State</th>
+                                        <th>City</th>
+                                        {{-- <th>Address</th> --}}
+                                        <th>Payroll(NGN)</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -54,19 +52,16 @@
                                         <tr>
                                             <td>{{ $i }}</td>
                                             @if (auth()->user()->userType == 1)
-                                                <td style="white-space: nowrap">{{ @$x->fullname }}</td>
+                                                <td>{{ @$x->fullname }}</td>
                                             @endif
-                                            <td style="white-space: nowrap">{{ @$x->IRNO }}</td>
-                                            <td style="white-space: nowrap">{{ @$x->plateNo }}</td>
-                                            @if (auth()->user()->userType == 2)
-                                                <td style="white-space: nowrap">{{ @$x->chasisNo }}</td>
-                                            @endif
-                                            <td style="white-space: nowrap">{{ @$x->make }}</td>
-                                            <td style="white-space: nowrap">{{ @$x->model }}</td>
-                                            <td style="white-space: nowrap">{{ number_format(@$x->value, 2) }}</td>
-                                            {{-- <td style="white-space: nowrap">
-                                                {{ Carbon::parse(@$x->created_at)->format('jS M, Y') }}</td> --}}
-                                            <td style="white-space: nowrap">
+                                            <td>{{ @$x->IRNO }}</td>
+                                            <td>{{ @$x->name }}</td>
+                                            {{-- <td>{{ @$x->services }}</td> --}}
+                                            {{-- <td>{{ @$x->description }}</td> --}}
+                                            <td>{{ @$x->businessState }}</td>
+                                            <td>{{ @$x->businessCity }}</td>
+                                            <td>{{ number_format(@$x->payroll, 2) }}</td>
+                                            <td>
                                                 <span
                                                     class="badge  {{ strtolower(@$x->status) == 'pending' ? 'bg-warning' : (strtolower(@$x->status) == 'rejected' ? 'bg-danger' : 'bg-success') }}">{{ @$x->status }}</span>
                                             </td>
@@ -80,14 +75,14 @@
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item"
-                                                                href="{{ route('car.view', ['id' => $x->id]) }}">View</a>
+                                                                href="{{ route('business.view', ['id' => $x->id]) }}">View</a>
                                                             @if (auth()->user()->userType == 1 && strtolower(@$x->status) == 'pending')
                                                                 <a class="dropdown-item btn-change-status" href="#"
-                                                                    data-url={{ route('car.update') }}
+                                                                    data-url={{ route('business.update') }}
                                                                     data-status='Approved' data-msg='Approve'
                                                                     data-id='{{ $x->id }}'>Approve</a>
                                                                 <a class="dropdown-item btn-change-status" href="#"
-                                                                    data-url={{ route('car.update') }}
+                                                                    data-url={{ route('business.update') }}
                                                                     data-status='Rejected' data-msg='Reject'
                                                                     data-id='{{ $x->id }}'>Reject</a>
                                                             @endif
@@ -114,5 +109,5 @@
     <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
     <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
     <script src="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.js') }}"></script>>
-    <script src="{{ asset('assets/js/pages/car.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/business.js') }}"></script>
 @endsection
