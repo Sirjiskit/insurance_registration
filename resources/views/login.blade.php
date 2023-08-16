@@ -41,7 +41,7 @@
                     @endif
                 </form>
                 <div class="text-center mt-2 text-lg fs-4">
-                    <p class='text-gray-600'>You do not have an account yet? <a href="{{ route('login.show') }}"
+                    <p class='text-gray-600'>You do not have an account yet? <a href="{{ route('register.show') }}"
                             class="font-bold">Sign up</a>.</p>
                 </div>
             </div>
